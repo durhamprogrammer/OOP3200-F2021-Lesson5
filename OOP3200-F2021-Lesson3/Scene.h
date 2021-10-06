@@ -1,38 +1,41 @@
-/**
- * Project Untitled
- */
+#pragma once
+#ifndef __SCENE__
+#define __SCENE__
 
-
-#ifndef _SCENE_H
-#define _SCENE_H
+#include <vector>
 
 #include "DisplayObject.h"
 
 
-class Scene: public DisplayObject {
-public: 
-    std::vector<DisplayObject*> m_pDisplayList;
-    
-void draw();
-    
-void update();
-    
-/**
- * @param child
- */
-void addChild(DisplayObject* child);
-    
-/**
- * @param child
- */
-void removeChild(DisplayObject* child);
-    
-void removeAllChildren();
-private: 
-    
-void updateDisplayList();
-    
-void drawDisplayList();
+class Scene
+{
+public:
+	// CONSTRUCTORS
+	Scene(const std::string& name);
+
+	// DESTRUCTOR
+	~Scene();
+
+    // Scene Life Cycle Functions
+	void draw();
+	void update();
+
+	// Getters and Setters
+	std::string getName() const;
+	void setName(const std::string& name);
+	    
+	// Display List Utility Functions
+	void addChild(DisplayObject* child);
+	void removeChild(DisplayObject* child);  
+	void removeAllChildren();
+
+private:
+	std::string m_name;
+	std::vector<DisplayObject*> m_pDisplayList;
+	
+	// Scene Management Functions
+	void updateDisplayList();
+	void drawDisplayList();
 };
 
-#endif //_SCENE_H
+#endif /* defined (__SCENE__) */
