@@ -64,8 +64,7 @@ void Scene::removeAllChildren()
 {
 	for (auto display_object : m_pDisplayList)
 	{
-        delete display_object;
-        display_object = nullptr;
+        display_object->setParent(nullptr);
 	}
 	
     m_pDisplayList.clear();
