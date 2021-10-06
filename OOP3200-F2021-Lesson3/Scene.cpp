@@ -52,8 +52,9 @@ void Scene::addChild(DisplayObject* child)
  */
 void Scene::removeChild(DisplayObject* child)
 {
-    delete child;
+    //delete child;
     m_pDisplayList.erase(std::remove(m_pDisplayList.begin(), m_pDisplayList.end(), child), m_pDisplayList.end());
+    child->setParent(nullptr);
 }
 
 /**
