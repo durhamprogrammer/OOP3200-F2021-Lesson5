@@ -1,30 +1,30 @@
-/**
- * Project Untitled
- */
-
-
-#ifndef _DISPLAYOBJECT_H
-#define _DISPLAYOBJECT_H
+#pragma once
+#ifndef __DISPLAY_OBJECT__
+#define __DISPLAY_OBJECT__
 
 #include "GameObject.h"
+#include "Scene.h"
 
 
 class DisplayObject: public GameObject {
 public: 
-    Scene m_parent;
-    
-void draw();
-    
-std::string ToString();
-    
-void update();
-    
-Scene getParent();
-    
-/**
- * @param scene
- */
-void setParent(Scene scene);
+	// CONSTRUCTORS
+	DisplayObject(const std::string& name);
+	
+	// DESTRUCTOR
+	~DisplayObject();
+	
+    void update() override;
+	void draw() override;
+	std::string ToString() override;
+
+	// Getters and Setters
+
+	Scene* getParent() const;
+	void setParent(Scene* scene);
+
+private:
+    Scene* m_pParent;
 };
 
-#endif //_DISPLAYOBJECT_H
+#endif /* defined (__DISPLAY_OBJECT__) */

@@ -1,46 +1,51 @@
-/**
- * Project Untitled
- */
-
-
 #include "DisplayObject.h"
 
-/**
- * DisplayObject implementation
- */
 
+DisplayObject::DisplayObject(const std::string& name): GameObject(name)
+{
+}
+
+DisplayObject::~DisplayObject()
+= default;
 
 /**
  * @return void
  */
-void DisplayObject::draw() {
-    return;
+void DisplayObject::update()
+{
+
+}
+
+/**
+ * @return void
+ */
+void DisplayObject::draw()
+{
+
 }
 
 /**
  * @return std::string
  */
-std::string DisplayObject::ToString() {
-    return null;
+std::string DisplayObject::ToString()
+{
+    
 }
 
-/**
- * @return void
- */
-void DisplayObject::update() {
-    return;
-}
+
 
 /**
  * @return Scene
  */
-Scene DisplayObject::getParent() {
-    return null;
+Scene* DisplayObject::getParent() const
+{
+    return m_pParent;
 }
 
 /**
  * @param scene
  */
-void DisplayObject::setParent(Scene scene) {
-
+void DisplayObject::setParent(Scene* scene)
+{
+    m_pParent = scene;
 }
