@@ -10,38 +10,28 @@
 #include <iostream>
 #include <vector>
 
-#include "Transform.h"
-#include "Vector2D.h"
+#include "Scene.h"
 
 int main()
 {
-	// create an empty vector of Transform shape
-	std::vector<Transform*> objects;
+	auto mainScene = new Scene("Main");
 
-	// initializes 5 objects of type Transform
-	// then store them inside the empty objects vector
-	for (int i = 0; i < 5; ++i)
-	{
-		Transform* temp_object = new Transform();
-		objects.push_back(temp_object);
-	}
+	auto player = new DisplayObject("player");
+	player->getTransform()->position.Set(10.0f, 20.0f);
+	mainScene->addChild(player);
 
-	int counter = 1;
-	// for each object in objects
-	for (Transform* object : objects)
-	{
-		std::cout << "-----------------------------" << std::endl;
-		std::cout << "Object# " << counter << std::endl;
-		object->position.Set(counter * 10.0f, 0.0f);
-		std::cout << object->ToString() << std::endl;
-		std::cout << "-----------------------------\n" << std::endl;
-		counter++;
-	}
+	auto enemy = new DisplayObject("enemy");
+	enemy->getTransform()->position.Set(20.0f, 30.0f);
+	mainScene->addChild(enemy);
+	
+	std::cout << "\n----------------------" << std::endl;
+	std::cout << player->ToString() << std::endl;
+	
+	std::cout << "\n----------------------" << std::endl;
+	std::cout << enemy->ToString() << std::endl;
 
-	float speed = 10.0f;
-	std::cout << "Object# 1 " << std::endl;
-	objects[0]->position = objects[0]->position + Vector2D::Up() * speed;
-	std::cout << objects[0]->position << std::endl;
+	std::cout << "\n----------------------" << std::endl;
+	std::cout << mainScene->ToString() << std::endl;
 }
 
 

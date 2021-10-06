@@ -3,11 +3,10 @@
 #define __DISPLAY_OBJECT__
 
 #include "GameObject.h"
-#include "Scene.h"
-
 
 class DisplayObject: public GameObject {
-public: 
+public:
+	friend class Scene;
 	// CONSTRUCTORS
 	DisplayObject(const std::string& name);
 	

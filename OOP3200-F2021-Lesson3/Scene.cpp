@@ -1,5 +1,7 @@
 #include "Scene.h"
 
+#include <iostream>
+
 Scene::Scene(const std::string& name)
 {
     setName(name);
@@ -40,6 +42,7 @@ void Scene::update()
  */
 void Scene::addChild(DisplayObject* child)
 {
+    child->setParent(this);
     m_pDisplayList.push_back(child);
 }
 
@@ -65,6 +68,19 @@ void Scene::removeAllChildren()
 	}
 	
     m_pDisplayList.clear();
+}
+
+std::string Scene::ToString()
+{
+    std::string output_string;
+    output_string += "The " + getName() + " scene contains: \n";
+    output_string += "=========================================\n";
+    for (auto display_object : m_pDisplayList)
+    {
+        output_string += display_object->getName() + "\n";
+    }
+
+    return output_string;
 }
 
 /**

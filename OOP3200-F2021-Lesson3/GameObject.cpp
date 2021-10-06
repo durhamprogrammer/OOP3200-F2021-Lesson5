@@ -3,6 +3,7 @@
 GameObject::GameObject(const std::string& name = "unset")
 {
 	setName(name);
+	getTransform()->scale.Set(1.0f, 1.0f);
 }
 
 GameObject::~GameObject()
@@ -21,9 +22,9 @@ void GameObject::setName(const std::string& name)
 /**
  * @return Transform
  */
-Transform GameObject::getTransform() const
+Transform* GameObject::getTransform()
 {
-    return m_transform;
+    return &m_transform;
 }
 
 /**
@@ -57,7 +58,7 @@ std::string GameObject::ToString()
 {
 	std::string output_string;
 
-	output_string += "Name: " + getName() + "\n";
+	output_string += "GameObject Name: " + getName() + "\n";
 	output_string += m_transform.ToString();
 
 	return output_string;

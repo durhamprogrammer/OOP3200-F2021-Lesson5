@@ -14,7 +14,7 @@ public:
     ~GameObject();
 
 	// Getters and Setters
-	Transform getTransform() const;
+	Transform* getTransform();
 	void setTransform(const Transform& transform);
 	std::string getName() const;
 	void setName(const std::string& name);

@@ -1,8 +1,9 @@
 #include "DisplayObject.h"
-
+#include "Scene.h"
 
 DisplayObject::DisplayObject(const std::string& name): GameObject(name)
 {
+    setParent(nullptr);
 }
 
 DisplayObject::~DisplayObject()
@@ -29,7 +30,13 @@ void DisplayObject::draw()
  */
 std::string DisplayObject::ToString()
 {
-    
+    std::string output_string;
+
+    output_string += "DisplayObject Name: " + getName() + "\n";
+    output_string += getTransform()->ToString() + "\n";
+    output_string += (m_pParent != nullptr) ? ("Parent Scene: " + getParent()->getName()) : "Parent Scene: None";
+	
+    return output_string;
 }
 
 

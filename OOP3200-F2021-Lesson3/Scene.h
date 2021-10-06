@@ -2,6 +2,7 @@
 #ifndef __SCENE__
 #define __SCENE__
 
+#include <string>
 #include <vector>
 
 #include "DisplayObject.h"
@@ -10,6 +11,7 @@
 class Scene
 {
 public:
+	
 	// CONSTRUCTORS
 	Scene(const std::string& name);
 
@@ -28,6 +30,7 @@ public:
 	void addChild(DisplayObject* child);
 	void removeChild(DisplayObject* child);  
 	void removeAllChildren();
+	std::string ToString();
 
 private:
 	std::string m_name;

@@ -9,7 +9,7 @@ struct Transform
 {
 public:
 	Vector2D position;
-	Vector2D rotation;
+	float rotation;
 	Vector2D scale;
 
 	std::string ToString() const;
