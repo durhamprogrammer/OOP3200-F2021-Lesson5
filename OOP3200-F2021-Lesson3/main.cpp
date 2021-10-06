@@ -33,9 +33,10 @@ int main()
 	std::cout << "\n----------------------" << std::endl;
 	std::cout << mainScene->ToString() << std::endl;
 
-	mainScene->removeChild(player);
+	mainScene->removeAllChildren();
 
 	std::cout << player->ToString() << std::endl;
+	std::cout << enemy->ToString() << std::endl;
 }
 
 
